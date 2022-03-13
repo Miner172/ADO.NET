@@ -1,0 +1,106 @@
+﻿<Window x:Class="ADOwpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADOwpf"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" MinHeight="600" MinWidth="1000" Width="1000">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.green.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="292*"/>
+            <RowDefinition Height="82*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Клиенты" TextAlignment="Center" FontSize="30"/>
+        <TextBlock Text="Заказы" TextAlignment="Center" FontSize="30" Grid.Column="1"/>
+
+        <Button x:Name="btnClear" Grid.Column="1" Grid.Row="2" Margin="5,5" Content="Очистить таблицы" FontSize="15" Click="BtnClearTable" Height="Auto"/>
+        <Button x:Name="btnAddRequest" Grid.Column="0" Grid.Row="2" Margin="5, 5" Content="Оформить Заказ" FontSize="15" Click="BtnAddRequest" Height="Auto"/>
+
+        <DataGrid x:Name="dataPerson"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectionMode="Single" 
+                  AutoGenerateColumns="False" 
+                  CurrentCellChanged="GVCurrentCellChanged"
+                  CellEditEnding="GVCellEditEnding"
+                  ItemsSource="{Binding}"
+                  IsReadOnly="False"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id" 
+                                    Binding="{Binding id}" 
+                                    Header="Id" 
+                                    IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="lastName" 
+                                    Binding="{Binding lastName}" 
+                                    Header="Фамилия"/>
+
+                <DataGridTextColumn x:Name="firstName" 
+                                    Binding="{Binding firstName}" 
+                                    Header="Имя"/>
+
+                <DataGridTextColumn x:Name="patronymic" 
+                                    Binding="{Binding patronymic}" 
+                                    Header="Очество"/>
+
+                <DataGridTextColumn x:Name="phoneNumber" 
+                                    Binding="{Binding phoneNumber}" 
+                                    Header="Телефон"/>
+
+                <DataGridTextColumn x:Name="email"
+                                    Binding="{Binding email}" 
+                                    Header="Почта"/>
+
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Click="MenuItemAdd_Click"/>
+                    <MenuItem Header="Удалить" Click="MenuItemDelete_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+        <DataGrid x:Name="dataRequest"
+                  Grid.Column="1"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectionMode="Single"
+                  AutoGenerateColumns="False" 
+                  ItemsSource="{Binding}"
+                  IsReadOnly="True" 
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id" 
+                                    Binding="{Binding id}" 
+                                    Header="Id" 
+                                    IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="email2" 
+                                    Binding="{Binding email}" 
+                                    Header="Почта"/>
+
+                <DataGridTextColumn x:Name="codeProduct" 
+                                    Binding="{Binding codeProduct}" 
+                                    Header="Код Продукта"/>
+
+                <DataGridTextColumn x:Name="nameProduct" 
+                                    Binding="{Binding nameProduct}" 
+                                    Header="Имя Продукта"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
