@@ -38,16 +38,24 @@ namespace ADOwpf
         {
             InitializeComponent();
 
-            ConMSSQLLocalDB = new SqlConnectionStringBuilder()
+            try
             {
-                DataSource = @"(localdb)\MSSQLLocalDB",
-                InitialCatalog = "LocalDB",
-                IntegratedSecurity = true,
-                Pooling = false,
-            };
+                ConMSSQLLocalDB = new SqlConnectionStringBuilder()
+                {
+                    DataSource = @"(localdb)\MSSQLLocalDB",
+                    InitialCatalog = "LocalDB",
+                    IntegratedSecurity = true,
+                    Pooling = false,
+                };
 
-            InitPerson();
-            InitRequest();
+                InitPerson();
+                InitRequest();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Application.Current.Shutdown();
+            }
         }
 
         private void InitRequest()
