@@ -35,16 +35,13 @@
                   IsSynchronizedWithCurrentItem="True"
                   SelectionMode="Single" 
                   AutoGenerateColumns="False" 
-                  CurrentCellChanged="GVCurrentCellChanged"
-                  CellEditEnding="GVCellEditEnding"
                   ItemsSource="{Binding}"
-                  IsReadOnly="False"
+                  IsReadOnly="True"
                   Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="id" 
-                                    Binding="{Binding id}" 
-                                    Header="Id" 
-                                    IsReadOnly="True"/>
+                                    Binding="{Binding Id}" 
+                                    Header="Id" />
 
                 <DataGridTextColumn x:Name="lastName" 
                                     Binding="{Binding lastName}" 
@@ -85,7 +82,7 @@
                   Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="Id" 
-                                    Binding="{Binding id}" 
+                                    Binding="{Binding Id}" 
                                     Header="Id" 
                                     IsReadOnly="True"/>
 

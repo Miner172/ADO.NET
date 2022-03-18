@@ -24,3 +24,8 @@ D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Program\C#\HomeWork\ADOwpf\ADOwpf\obj\Debug\App.baml
 D:\Program\C#\HomeWork\ADOwpf\ADOwpf\obj\Debug\ADOwpf.csproj.CopyComplete
+D:\Program\C#\HomeWork\ADOwpf\ADOwpf\obj\Debug\ADOwpf_Content.g.cs
+D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\EntityFramework.dll
+D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\EntityFramework.SqlServer.dll
+D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\EntityFramework.xml
+D:\Program\C#\HomeWork\ADOwpf\ADOwpf\bin\Debug\EntityFramework.SqlServer.xml

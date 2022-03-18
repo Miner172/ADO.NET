@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelDBContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PersonSet" EntityType="ModelDB.Person" />
+    <EntitySet Name="RequestSet" EntityType="ModelDB.Request" />
+  </EntityContainer>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastName" Type="String" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" />
+    <Property Name="patronymic" Type="String" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" Nullable="true" />
+    <Property Name="email" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" Nullable="false" />
+    <Property Name="codeProduct" Type="String" Nullable="false" />
+    <Property Name="nameProduct" Type="String" Nullable="false" />
+  </EntityType>
+</Schema>

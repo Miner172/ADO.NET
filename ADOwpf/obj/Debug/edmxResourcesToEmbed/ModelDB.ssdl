@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelDBStoreContainer">
+    <EntitySet Name="PersonSet" EntityType="ModelDB.Store.PersonSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequestSet" EntityType="ModelDB.Store.RequestSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="PersonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="patronymic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="codeProduct" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nameProduct" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+</Schema>

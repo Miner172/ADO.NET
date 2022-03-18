@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +23,22 @@ namespace ADOwpf
     {
         private AddRequest() { InitializeComponent(); }
 
-        public AddRequest(DataRow row) : this()
+        public AddRequest(DataGrid dataGrid, ModelDBContainer db) : this()
         {
             cancelBtn.Click += delegate { this.DialogResult = false; };
             okBtn.Click += delegate
             {
-                row["email"] = txtEmail.Text;
-                row["codeProduct"] = txtCodeProduct.Text;
-                row["nameProduct"] = txtNameProduct.Text;
+                Request req = new Request
+                {
+                    email = txtEmail.Text,
+                    codeProduct = txtCodeProduct.Text,
+                    nameProduct = txtNameProduct.Text
+                };
+
+                db.RequestSet.Add(req);
+                db.SaveChanges();
+                dataGrid.ItemsSource = db.RequestSet.Local.ToBindingList<Request>();
+                dataGrid.Items.Refresh();
                 this.DialogResult = !false;
             };
 
